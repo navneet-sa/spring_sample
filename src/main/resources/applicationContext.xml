@@ -8,8 +8,7 @@
 		class="com.sa.learn.repository.HibernateCustomerRepositoryImpl" />
 
 	<bean name="customerService"
-		class="com.sa.learn.service.CustomerServiceImpl">
-		<constructor-arg index="0" ref="customerRepository" />
+		class="com.sa.learn.service.CustomerServiceImpl" autowire="constructor">
 	</bean>
 
 </beans>

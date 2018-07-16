@@ -1,13 +1,19 @@
 package com.sa.learn;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.sa.learn.service.CustomerService;
-import com.sa.learn.service.CustomerServiceImpl;
 
 public class Application {
 
     public static void main(String[] args) {
 
-        CustomerService service = new CustomerServiceImpl();
+        // CustomerService service = new CustomerServiceImpl();
+
+        ApplicationContext appContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        CustomerService service = appContext.getBean("customerService", CustomerService.class);
+
         System.out.println(service.findAll().get(0).getFirstname());
 
     }
